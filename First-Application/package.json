@@ -9,6 +9,7 @@
     "dev": "nodemon -r dotenv/config ./bin/www"
   },
   "dependencies": {
+    "@shelf/jest-mongodb": "^2.2.0",
     "cookie-parser": "~1.4.4",
     "debug": "~2.6.9",
     "dotenv": "^16.0.0",
