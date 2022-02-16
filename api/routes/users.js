@@ -8,7 +8,7 @@ router.route('/').get((req, res) => {
         .find({}).limit(50)
         .toArray(function (err, result) {
           if (err) {
-            res.status(400).send("Error fetching users!");
+            res.status(400).send("Error fetching users!!");
           } else {
               res.json(result);
           }
