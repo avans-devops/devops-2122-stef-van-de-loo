@@ -19,5 +19,3 @@ jobs:
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
                 working-directory: 'api'
-            - name: Run ESLint
-              run: npm run lint
