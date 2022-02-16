@@ -20,5 +20,3 @@ jobs:
               with:
                 working-directory: 'api'
             - uses: stefanoeb/eslint-action@1.0.2
-              with:
-                working-directory: 'api'
