@@ -1,5 +1,0 @@
-{
-  "dependencies": {
-    "@shelf/jest-mongodb": "^2.2.0"
-  }
-}
