@@ -25,6 +25,7 @@ jobs:
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
-      - uses: ArtiomTr/jest-coverage-report-action@v2.0.3
       - name: Run jest coverage report
-        working-directory: ./api
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.3
+        with:
+          working-directory: './api'
