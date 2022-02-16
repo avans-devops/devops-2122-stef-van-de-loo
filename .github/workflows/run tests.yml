@@ -10,7 +10,7 @@ jobs:
     coverage:
         defaults:
           run:
-            working-directory: 'api'
+            working-directory: './api'
         
         runs-on: ubuntu-latest
         
@@ -19,7 +19,3 @@ jobs:
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
                 working-directory: 'api'
-            - name: Install modules
-              run: yarn
-            - name: Run ESLint
-              run: eslint . --ext .js,.jsx,.ts,.tsxv2
