@@ -19,7 +19,6 @@ jobs:
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
                 working-directory: 'api'
-            - name: Install modules
-              run: yarn
-            - name: Run ESLint
-              run: eslint . --ext .js,.jsx,.ts,.tsx
+            - uses: stefanoeb/eslint-action@1.0.2
+              with:
+                working-directory: 'api'
