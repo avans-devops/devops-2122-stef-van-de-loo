@@ -1,0 +1,21 @@
+name: jest coverage report
+on:
+  push:
+    paths: 
+      - 'api/**'
+  pull_request:
+    branches: [ main ]
+    
+jobs:
+    coverage:
+        defaults:
+          run:
+            working-directory: './api'
+        
+        runs-on: ubuntu-latest
+        
+        steps:
+            - uses: actions/checkout@v1
+            - uses: ArtiomTr/jest-coverage-report-action@v2
+              with:
+                working-directory: 'api'
