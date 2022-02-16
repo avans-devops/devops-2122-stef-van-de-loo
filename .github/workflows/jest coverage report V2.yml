@@ -1,0 +1,31 @@
+name: Jest coverage report
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  push:
+    branches: [ main ]
+    paths: 'api/**'
+  pull_request:
+    branches: [ main ]
+    
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "report"
+  report:
+    # The type of runner that the job will run on
+    defaults:
+      run:
+        working-directory: './api'
+      
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Run jest coverage report
+        uses: ArtiomTr/jest-coverage-report-action@v2.0.3
+        with:
+          working-directory: './api'
