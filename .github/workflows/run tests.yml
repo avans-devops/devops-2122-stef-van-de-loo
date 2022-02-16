@@ -10,7 +10,7 @@ jobs:
     coverage:
         defaults:
           run:
-            working-directory: './api'
+            working-directory: 'api'
         
         runs-on: ubuntu-latest
         
