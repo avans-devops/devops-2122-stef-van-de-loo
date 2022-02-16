@@ -19,5 +19,7 @@ jobs:
             - uses: ArtiomTr/jest-coverage-report-action@v2
               with:
                 working-directory: 'api'
+            - name: Run npx
+              run: npm install
             - name: Run ESLint
               run: npx eslint .
