@@ -20,6 +20,6 @@ jobs:
               with:
                 working-directory: 'api'
             - name: Install npm
-              run: npm install
+              run: npm install eslint
             - name: Run ESLint
               run: eslint .
