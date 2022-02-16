@@ -13,12 +13,17 @@ on:
 jobs:
   badges:
     name: Badges
+    
+    defaults:
+      run:
+        working-directory: 'api'
+    
     runs-on: ubuntu-latest
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
 
-      - name: Update version badges 🏷
+      - name: Update version badges
         run: npx -p dependency-version-badge update-badge cypress cy-spok
 
       - name: Commit any changed files
