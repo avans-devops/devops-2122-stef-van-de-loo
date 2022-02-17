@@ -16,7 +16,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: 'api'
+        working-directory: './api'
     
     runs-on: ubuntu-20.04
     
