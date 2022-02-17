@@ -1,38 +1,39 @@
+name: Update badges
 
-name: badges
 on:
   push:
-    # update README badge only if the README file changes
-    # or if the package.json file changes, or this file changes
     branches: [ main ]
-    paths:
-      - README.md
-      - package.json
-      - .github/workflows/badges.yml
 
 jobs:
-  badges:
-    name: Badges
-    
+  update:
+  
     defaults:
       run:
         working-directory: './api'
-    
-    runs-on: ubuntu-20.04
-    
+  
+    runs-on: ubuntu-latest
     steps:
-      - name: Checkout 🛎
+      - name: Check out repository
         uses: actions/checkout@v2
         with:
-          working-directory: './api'
+          ref: ${{ github.ref }}
+          fetch-depth: 0
 
-      - name: Update version badges
-        run: npx -p dependency-version-badge update-badge cypress cy-spok
+      - name: Install packages
+        run: yarn
+        working-directory: ./.github/actions/update-badge
 
-      - name: Commit any changed files
-        uses: stefanzweifel/git-auto-commit-action@v4
+      - name: Use local action
+        uses: ./.github/actions/update-badge
         with:
-          working-directory: './api'
-          commit_message: Updated badges
-          branch: main
-          file_pattern: README.md
+          ghToken: ${{ secrets.GITHUB_TOKEN }}
+          inputFile: README.md
+          outputFile: README.md
+
+      - name: Git commit and push
+        run: |
+          git config user.email 'actions@github.com'
+          git config user.name 'github-actions'
+          if git commit -am 'update badges'; then
+            git push origin HEAD:${{ github.ref }}
+          fi
