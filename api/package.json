@@ -11,6 +11,7 @@
   "dependencies": {
     "@shelf/jest-mongodb": "^2.2.0",
     "cookie-parser": "~1.4.4",
+    "cy-spok": "^1.5.2",
     "cypress": "^9.5.0",
     "debug": "~2.6.9",
     "dependency-version-badge": "^1.11.0",
