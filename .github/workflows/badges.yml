@@ -23,6 +23,8 @@ jobs:
     steps:
       - name: Checkout 🛎
         uses: actions/checkout@v2
+        with:
+          working-directory: './api'
 
       - name: Update version badges
         run: npx -p dependency-version-badge update-badge cypress cy-spok
@@ -30,6 +32,7 @@ jobs:
       - name: Commit any changed files
         uses: stefanzweifel/git-auto-commit-action@v4
         with:
+          working-directory: './api'
           commit_message: Updated badges
           branch: main
           file_pattern: README.md
