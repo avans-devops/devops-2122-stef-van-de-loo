@@ -5,10 +5,10 @@ on:
     # update README badge only if the README file changes
     # or if the package.json file changes, or this file changes
     branches: [ main ]
-#     paths:
-#       - README.md
-#       - package.json
-#       - .github/workflows/badges.yml
+    paths:
+      - README.md
+      - package.json
+      - .github/workflows/badges.yml
 
 jobs:
   badges:
@@ -16,7 +16,7 @@ jobs:
     
     defaults:
       run:
-        working-directory: 'api'
+        working-directory: './api'
     
     runs-on: ubuntu-20.04
     
