@@ -1,0 +1,30 @@
+Run mongo container:
+	docker run -p 27017:27017 -d --network end-project-network --name mongo-db --rm mongo
+
+
+Run development container:
+	docker run -p 3000:3000 -d --network end-project-network --mount type=bind,source="$(pwd)",target=/app --name end-project-dev --rm smajwloo/end-project-development
+
+
+Run production container:
+	docker run -p 4000:4000 -d --network end-project-network --name end-project-prod --rm smajwloo/end-project-production
+
+
+
+
+Build development image:
+	docker build -f . -t smajwloo/end-project-development ./
+
+
+Build production image:
+	docker build -f dockerfile.prod -t smajwloo/end-project-prodution ./
+
+
+
+
+Create network:
+	docker network create end-project-network
+
+
+Create volume:
+	docker volume create --mount source=end-project-volume,target=/data/db
