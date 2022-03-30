@@ -16,9 +16,7 @@ module.exports = {
                     if (err || !db) {
                         reject(err);
                     }
-
-                    // db.auth("smajwloo", "password");
-                    // db.adminCommand( { setParameter: 1, scramSHA256IterationCount: 20000 } )
+                    
                     dbConnection = db.db(process.env.DB_NAME);
                     console.log("Successfully connected to MongoDB.");
 

@@ -6,7 +6,7 @@
     "start": "node ./bin/www",
     "test": "jest",
     "lint": "npx eslint .",
-    "dev": "nodemon -r --legacy-watch dotenv/config ./bin/www"
+    "dev": "nodemon -r --legacy-watch ./bin/www"
   },
   "dependencies": {
     "@shelf/jest-mongodb": "^2.2.0",

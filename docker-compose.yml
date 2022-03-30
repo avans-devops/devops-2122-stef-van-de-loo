@@ -3,13 +3,14 @@ services:
   api:
     build: ./api
     image: smajwloo/end-project-api
-    command: npm run dev --trace-warnings
+    command: npm run dev
     ports:
       - "3000:3000"
     volumes:
       - ./api:/app
+      - /app/node_modules
     environment:
-      DATABASE_URL: mongodb://mongo-db:27017
+      DATABASE_URL: mongodb://smajwloo:password@mongo-db:27017
   frontend:
     build: ./frontend
     image: smajwloo/end-project-frontend
@@ -22,11 +23,9 @@ services:
     volumes:
       - end-project-volume:/database-files
     restart: always
-    # expose: ["27017"]
-    ports:
-      - "27017:27017" # Temporary
+    expose: ["27017"]
     environment:
-      MONGO_INITDB_ROOT_USERNAME: smajwloo # Not working yet
-      MONGO_INITDB_ROOT_PASSWORD: password # Not working yet
+      MONGO_INITDB_ROOT_USERNAME: smajwloo
+      MONGO_INITDB_ROOT_PASSWORD: password
 volumes:
   end-project-volume:
