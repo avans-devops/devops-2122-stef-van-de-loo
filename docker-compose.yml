@@ -1,23 +1,21 @@
 version: "3.9"
 services:
   api:
-    build: /api
     image: smajwloo/end-project-api
     command: npm run dev
     ports:
       - "3000:3000"
     volumes:
-      - /api:/app
+      - ./api:/app
       - /app/node_modules
     environment:
       DATABASE_URL: mongodb://smajwloo:password@mongo-db:27017
   frontend:
-    build: /frontend
     image: smajwloo/end-project-frontend
     ports:
       - "8080:80"
     volumes:
-      - /frontend:/app
+      - ./frontend:/app
   mongo-db:
     image: mongo:latest
     volumes:
