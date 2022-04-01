@@ -7,7 +7,7 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - ./api:/app
+      - /api:/app
       - /app/node_modules
     environment:
       DATABASE_URL: mongodb://smajwloo:password@mongo-db:27017
@@ -17,7 +17,7 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ./frontend:/app
+      - /frontend:/app
   mongo-db:
     image: mongo:latest
     volumes:
