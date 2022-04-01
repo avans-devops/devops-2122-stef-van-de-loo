@@ -3,7 +3,7 @@ services:
   api:
     build:
       context: .
-      dockerfile: ./api/Dockerfile
+      dockerfile: ./api/dockerfile
     command: npm run dev
     ports:
       - "3000:3000"
@@ -17,7 +17,7 @@ services:
   frontend:
     build:
       context: .
-      dockerfile: ./frontend/Dockerfile
+      dockerfile: ./frontend/dockerfile
     ports:
       - "8080:80"
     volumes:
