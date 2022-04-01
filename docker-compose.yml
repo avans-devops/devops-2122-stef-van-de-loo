@@ -1,7 +1,9 @@
 version: "3.9"
 services:
   api:
-    build: ./api
+    build:
+      context: ./api
+      dockerfile: Dockerfile
     command: npm run dev
     ports:
       - "3000:3000"
@@ -13,7 +15,9 @@ services:
     environment:
       DATABASE_URL: mongodb://smajwloo:password@mongo-db:27017
   frontend:
-    build: ./frontend
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
     ports:
       - "8080:80"
     volumes:
