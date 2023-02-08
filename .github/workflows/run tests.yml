@@ -15,7 +15,7 @@ jobs:
         runs-on: ubuntu-latest
         
         steps:
-            - uses: actions/checkout@v1
-            - uses: ArtiomTr/jest-coverage-report-action@v2
-              with:
-                working-directory: 'api'
+          - name: Jest coverage report
+            uses: ArtiomTr/jest-coverage-report-action@v2.2.1-rc.0
+            with:
+              working-directory: './api'
